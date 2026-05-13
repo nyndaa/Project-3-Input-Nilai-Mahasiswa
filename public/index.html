@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penilaian Mahasiswa</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Background Blur -->
+    <div class="bg-blur bg1"></div>
+    <div class="bg-blur bg2"></div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1>Sistem Penilaian Mahasiswa</h1>
+                <p>
+                    Selamat datang di sistem penilaian mahasiswa !!!! <br>
+                    Silahkan input nilai Anda dan tunggu konfirmasi dari Dosen
+                </p>
+            </div>
+            <div class="badge">
+                 <i class="fa-solid fa-user-graduate"></i>
+                Dashboard Mahasiswa
+            </div>
+        </div>
+        
+        <!-- Card Form -->
+        <div class="card form-card">
+            <h2>Form Input Nilai</h2>
+            <form id="formNilai">
+                <div class="input-group">
+                    <label>Nama Mahasiswa</label>
+                    <input 
+                        type="text" 
+                        id="nama" 
+                        placeholder="Masukkan nama mahasiswa"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Mata Kuliah</label>
+                    <input 
+                        type="text" 
+                        id="matkul" 
+                        placeholder="Masukkan mata kuliah"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Nilai</label>
+                    <input 
+                        type="number" 
+                        id="nilai" 
+                        placeholder="Masukkan nilai"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn-submit">
+                    Simpan Nilai
+                </button>
+            </form>
+        </div>
+
+        <!-- Data -->
+        <div class="card">
+            <div class="section-title">
+                <h2>Data Penilaian</h2>
+            </div>
+            <div id="listNilai"></div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

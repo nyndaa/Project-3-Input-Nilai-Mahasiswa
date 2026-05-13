@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Dosen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="bg-blur bg1"></div>
+<div class="bg-blur bg2"></div>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <h1>Dashboard Dosen</h1>
+            <p>Silahkan konfirmasi dan validasi nilai mahasiswa</p>
+        </div>
+
+        <div class="badge">
+            <i class="fa-solid fa-person-chalkboard"></i>
+            Dashboard Dosen
+        </div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+        <div class="section-title">
+            <h2>Data Mahasiswa</h2>
+        </div>
+        <div id="dosenList"></div>
+    </div>
+</div>
+
+<script>
+const dosenList = document.getElementById("dosenList");
+async function loadData(){
+    const res = await fetch("/nilai");
+    const data = await res.json();
+    dosenList.innerHTML = "";
+    data.forEach(item => {
+        let statusClass = "pending";
+        if(item.status === "Dikonfirmasi"){
+            statusClass = "acc";
+        }
+        if(item.status === "Ditolak"){
+            statusClass = "reject";
+        }
+        dosenList.innerHTML += `
+            <div class="data-card">
+                <h3>${item.nama}</h3>
+                <p><strong>Mata Kuliah:</strong> ${item.matkul}</p>
+                <p><strong>Nilai:</strong> ${item.nilai}</p>
+                <p>
+                    <span class="status ${statusClass}">
+                        ${item.status}
+                    </span>
+                </p>
+
+                <textarea 
+                    id="komentar-${item.id}" 
+                    placeholder="Berikan komentar untuk mahasiswa..."
+                    class="textarea-komentar"
+                >${item.komentar || ""}</textarea>
+
+                <div class="btn-group">
+                    <button 
+                        class="btn-acc"
+                        onclick="updateStatus(${item.id}, 'Dikonfirmasi')"
+                    >
+                        ACC
+                    </button>
+                    <button 
+                        class="btn-tolak"
+                        onclick="updateStatus(${item.id}, 'Ditolak')"
+                    >
+                        Tolak
+                    </button>
+                </div>
+
+            </div>
+
+        `;
+    });
+}
+
+async function updateStatus(id, status){
+
+    const komentar = document.getElementById(`komentar-${id}`).value;
+
+    await fetch(`/nilai/${id}`, {
+
+        method:"PUT",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            status,
+            komentar
+        })
+
+    });
+
+    loadData();
+}
+
+loadData();
+
+</script>
+</body>
+</html>
