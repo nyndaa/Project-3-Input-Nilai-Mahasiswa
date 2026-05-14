@@ -1,1 +1,66 @@
-[] 
+[
+  {
+    "id": 1778762378498,
+    "nama": "Raharjian Sustanadia Wijayanti",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "98",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat Bagus"
+  },
+  {
+    "id": 1778762399912,
+    "nama": "Ali Fahmi Yusuf",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "100",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat Sempurna"
+  },
+  {
+    "id": 1778762416990,
+    "nama": "Dewi Rahhmawati",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "98",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat Bagus"
+  },
+  {
+    "id": 1778762433062,
+    "nama": "Melia Fransiska Sung",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "95",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat Bagus"
+  },
+  {
+    "id": 1778762443945,
+    "nama": "Indah Amiati",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "99",
+    "status": "Dikonfirmasi",
+    "komentar": "Sempurna"
+  },
+  {
+    "id": 1778762454167,
+    "nama": "Mian",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "90",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat Bagus"
+  },
+  {
+    "id": 1778762469564,
+    "nama": "Fidelia Ping",
+    "matkul": "Pemrograman Sisi Backed-End",
+    "nilai": "95",
+    "status": "Dikonfirmasi",
+    "komentar": "Sangat bagus"
+  },
+  {
+    "id": 1778762559622,
+    "nama": "Marvin Henuk",
+    "matkul": "Sistem Basis Data",
+    "nilai": "80",
+    "status": "Ditolak",
+    "komentar": "Maaf Anda Salah Kelas"
+  }
+]
