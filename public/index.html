@@ -7,26 +7,34 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- link icon -->
+    <!-- Link Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Background Blur -->
     <div class="bg-blur bg1"></div>
     <div class="bg-blur bg2"></div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
             <div>
                 <h1>Sistem Penilaian Mahasiswa</h1>
                 <p>
-                    Selamat datang di sistem penilaian mahasiswa !!!! <br>
+                    Selamat datang di sistem penilaian mahasiswa! <br>
                     Silahkan input nilai Anda dan tunggu konfirmasi dari Dosen
                 </p>
             </div>
-            <div class="badge">
-                 <i class="fa-solid fa-user-graduate"></i>
-                Dashboard Mahasiswa
+
+            <div class="header-actions">
+                <div class="badge">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    Dashboard Mahasiswa
+                </div>
+                <button type="button" class="btn-switch-role" onclick="bukaModalDosen()">
+                    <i class="fa-solid fa-person-chalkboard"></i>
+                    Masuk Dosen
+                </button>
             </div>
         </div>
         
@@ -59,7 +67,9 @@
                     <input 
                         type="number" 
                         id="nilai" 
-                        placeholder="Masukkan nilai"
+                        placeholder="Masukkan nilai (0 - 100)"
+                        min="0"
+                        max="100"
                         required
                     >
                 </div>
@@ -78,6 +88,68 @@
         </div>
     </div>
 
-<script src="script.js"></script>
+    <!-- Modal Login Dosen -->
+    <div id="modalLoginDosen" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3>Login Dashboard Dosen</h3>
+            <p class="modal-desc">
+                Masukkan PIN akses dosen untuk melakukan validasi nilai mahasiswa.<br>
+                <span class="pin-hint">PIN Demo: <strong>1234</strong></span>
+            </p>
+            <input 
+                type="password" 
+                id="pinDosen" 
+                class="modal-input"
+                placeholder="Masukkan PIN..."
+            >
+            <p id="pesanErrorPin" class="error-text">
+                <i class="fa-solid fa-circle-exclamation"></i> PIN salah, silakan coba lagi.
+            </p>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal-cancel" onclick="tutupModalDosen()">Batal</button>
+                <button type="button" class="btn-modal-login" onclick="cekLoginDosen()">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function bukaModalDosen() {
+            document.getElementById("modalLoginDosen").style.display = "flex";
+            document.getElementById("pinDosen").focus();
+        }
+
+        function tutupModalDosen() {
+            document.getElementById("modalLoginDosen").style.display = "none";
+            document.getElementById("pesanErrorPin").style.display = "none";
+            document.getElementById("pinDosen").value = "";
+        }
+
+        function cekLoginDosen() {
+            const pin = document.getElementById("pinDosen").value;
+            if (pin === "1234") {
+                sessionStorage.setItem("isDosenLoggedIn", "true");
+                window.location.href = "/dosen.html";
+            } else {
+                document.getElementById("pesanErrorPin").style.display = "block";
+            }
+        }
+
+        document.getElementById("pinDosen").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                cekLoginDosen();
+            }
+        });
+
+        // Tutup modal jika klik di luar kotak putih
+        document.getElementById("modalLoginDosen").addEventListener("click", function(e) {
+            if (e.target === this) {
+                tutupModalDosen();
+            }
+        });
+    </script>
 </body>
 </html>

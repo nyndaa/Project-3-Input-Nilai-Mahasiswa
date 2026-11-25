@@ -6,24 +6,7 @@
 
 body{
     font-family:'Poppins', sans-serif;
-
-    background:
-        linear-gradient(135deg,#1aede2,#0a9da2);
-
-    min-height:100vh;
-    overflow-x:hidden;
-    padding:40px 20px;
-    position:relative;
-}
-
-/* TEXTURE GRID */
-
-body{
-    font-family:'Poppins', sans-serif;
-
-    background:
-        linear-gradient(135deg,#1aede2,#0a9da2);
-
+    background: linear-gradient(135deg,#1aede2,#0a9da2);
     min-height:100vh;
     overflow-x:hidden;
     padding:40px 20px;
@@ -31,36 +14,27 @@ body{
 }
 
 /* GRID TEXTURE TEBAL */
-
 body::before{
     content:'';
     position:fixed;
     inset:0;
-
     background-image:
         linear-gradient(rgba(255,255,255,0.28) 2px, transparent 2px),
         linear-gradient(90deg, rgba(255,255,255,0.28) 2px, transparent 2px);
-
     background-size:50px 50px;
-
     z-index:0;
     pointer-events:none;
 }
 
 /* DOT TEXTURE TEBAL */
-
 body::after{
     content:'';
     position:fixed;
     inset:0;
-
     background-image:
         radial-gradient(rgba(255,255,255,0.45) 2px, transparent 2px);
-
     background-size:24px 24px;
-
     opacity:0.9;
-
     z-index:0;
     pointer-events:none;
 }
@@ -68,7 +42,6 @@ body::after{
 /* ========================= */
 /* BACKGROUND BLUR */
 /* ========================= */
-
 .bg-blur{
     position:absolute;
     border-radius:50%;
@@ -95,7 +68,6 @@ body::after{
 /* ========================= */
 /* CONTAINER */
 /* ========================= */
-
 .container{
     max-width:1000px;
     margin:auto;
@@ -106,7 +78,6 @@ body::after{
 /* ========================= */
 /* HEADER */
 /* ========================= */
-
 .header{
     display:flex;
     justify-content:space-between;
@@ -128,35 +99,63 @@ body::after{
     opacity:0.9;
 }
 
-/* ========================= */
-/* BADGE */
-/* ========================= */
+.header-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+}
 
+/* ========================= */
+/* BADGE & ROLE SWITCHER */
+/* ========================= */
 .badge{
-    background:rgba(255,255,255,0.15);
-    padding:12px 20px;
+    background:rgba(255,255,255,0.18);
+    padding:10px 20px;
     border-radius:50px;
     backdrop-filter:blur(14px);
     font-weight:600;
-    border:1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.3);
     color:white;
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-switch-role{
+    background:rgba(255,255,255,0.92);
+    color:#0a9da2;
+    padding:9px 18px;
+    border-radius:50px;
+    border:none;
+    font-family:'Poppins', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.12);
+    transition:0.25s;
+}
+
+.btn-switch-role:hover{
+    background:#ffffff;
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
 }
 
 /* ========================= */
 /* CARD */
 /* ========================= */
-
 .card{
     background:rgba(255,255,255,0.92);
     backdrop-filter:blur(14px);
-
     border:1px solid rgba(255,255,255,0.3);
-
     border-radius:24px;
     padding:30px;
     margin-bottom:25px;
-
     box-shadow:
         0 10px 40px rgba(0,0,0,0.15),
         inset 0 1px 0 rgba(255,255,255,0.5);
@@ -170,7 +169,6 @@ body::after{
 /* ========================= */
 /* FORM */
 /* ========================= */
-
 form{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -193,6 +191,7 @@ form{
     border:none;
     border-radius:14px;
     background:#f3f4f6;
+    font-family:'Poppins', sans-serif;
     font-size:15px;
     transition:0.3s;
 }
@@ -206,34 +205,28 @@ form{
 /* ========================= */
 /* BUTTON */
 /* ========================= */
-
 .btn-submit{
     grid-column:span 2;
     padding:16px;
     border:none;
     border-radius:16px;
-
     background:linear-gradient(135deg,#1aede2,#0a9da2);
-
     color:white;
+    font-family:'Poppins', sans-serif;
     font-size:16px;
     font-weight:600;
-
     cursor:pointer;
     transition:0.3s;
 }
 
 .btn-submit:hover{
     transform:translateY(-3px);
-
-    box-shadow:
-        0 10px 20px rgba(10,157,162,0.3);
+    box-shadow:0 10px 20px rgba(10,157,162,0.3);
 }
 
 /* ========================= */
 /* SECTION */
 /* ========================= */
-
 .section-title{
     margin-bottom:20px;
 }
@@ -245,22 +238,17 @@ form{
 /* ========================= */
 /* DATA CARD */
 /* ========================= */
-
 .data-card{
     background:#f9fafb;
-
     border-radius:18px;
     padding:20px;
     margin-bottom:15px;
-
     border-left:6px solid #facc15;
-
     transition:0.3s;
 }
 
 .data-card:hover{
     transform:translateY(-3px);
-
     box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
@@ -277,7 +265,6 @@ form{
 /* ========================= */
 /* STATUS */
 /* ========================= */
-
 .status{
     display:inline-block;
     margin-top:10px;
@@ -305,7 +292,6 @@ form{
 /* ========================= */
 /* TEXTAREA */
 /* ========================= */
-
 .textarea-komentar{
     width:100%;
     margin-top:15px;
@@ -328,65 +314,191 @@ form{
 /* ========================= */
 /* BUTTON GROUP */
 /* ========================= */
-
 .btn-group{
     display:flex;
     gap:12px;
     margin-top:15px;
 }
 
-/* BUTTON ACC */
-
 .btn-acc{
     flex:1;
     padding:14px;
     border:none;
     border-radius:14px;
-
     background:linear-gradient(135deg,#22c55e,#16a34a);
-
     color:white;
+    font-family:'Poppins', sans-serif;
     font-weight:600;
-
     cursor:pointer;
     transition:0.3s;
 }
 
 .btn-acc:hover{
     transform:translateY(-2px);
-
     box-shadow:0 10px 20px rgba(34,197,94,0.3);
 }
-
-/* BUTTON TOLAK */
 
 .btn-tolak{
     flex:1;
     padding:14px;
     border:none;
     border-radius:14px;
-
     background:linear-gradient(135deg,#ef4444,#dc2626);
-
     color:white;
+    font-family:'Poppins', sans-serif;
     font-weight:600;
-
     cursor:pointer;
     transition:0.3s;
 }
 
 .btn-tolak:hover{
     transform:translateY(-2px);
-
     box-shadow:0 10px 20px rgba(239,68,68,0.3);
+}
+
+/* ========================= */
+/* MODAL LOGIN DOSEN */
+/* ========================= */
+.modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15, 23, 42, 0.55);
+    backdrop-filter:blur(6px);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:999;
+}
+
+.modal-box{
+    background:rgba(255,255,255,0.97);
+    border-radius:24px;
+    padding:32px 28px;
+    width:100%;
+    max-width:380px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+    animation:modalPop 0.22s ease;
+}
+
+@keyframes modalPop{
+    from{
+        opacity:0;
+        transform:scale(0.94);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.modal-icon{
+    width:54px;
+    height:54px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1aede2,#0a9da2);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.modal-box h3{
+    color:#111827;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.modal-desc{
+    font-size:13.5px;
+    color:#6b7280;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.pin-hint{
+    display:inline-block;
+    margin-top:6px;
+    padding:3px 10px;
+    background:#ecfeff;
+    color:#0a9da2;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.modal-input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:#f3f4f6;
+    font-family:'Poppins', sans-serif;
+    font-size:15px;
+    text-align:center;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.modal-input:focus{
+    outline:none;
+    background:white;
+    box-shadow:0 0 0 3px rgba(26,237,226,0.3);
+}
+
+.error-text{
+    display:none;
+    color:#dc2626;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top:8px;
+}
+
+.btn-modal-cancel{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#e5e7eb;
+    color:#374151;
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-modal-cancel:hover{
+    background:#d1d5db;
+}
+
+.btn-modal-login{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#1aede2,#0a9da2);
+    color:white;
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-modal-login:hover{
+    box-shadow:0 8px 18px rgba(10,157,162,0.3);
 }
 
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
-
 @media(max-width:768px){
-
     form{
         grid-template-columns:1fr;
     }
@@ -399,4 +511,7 @@ form{
         font-size:28px;
     }
 
+    .header-actions{
+        align-items:flex-start;
+    }
 }

@@ -7,11 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Proteksi akses: kembalikan ke halaman utama jika belum login PIN dosen
+        if (sessionStorage.getItem("isDosenLoggedIn") !== "true") {
+            window.location.href = "/";
+        }
+    </script>
 </head>
 <body>
 
 <div class="bg-blur bg1"></div>
 <div class="bg-blur bg2"></div>
+
 <div class="container">
     <!-- Header -->
     <div class="header">
@@ -20,9 +27,15 @@
             <p>Silahkan konfirmasi dan validasi nilai mahasiswa</p>
         </div>
 
-        <div class="badge">
-            <i class="fa-solid fa-person-chalkboard"></i>
-            Dashboard Dosen
+        <div class="header-actions">
+            <div class="badge">
+                <i class="fa-solid fa-person-chalkboard"></i>
+                Dashboard Dosen
+            </div>
+            <button type="button" class="btn-switch-role" onclick="keluarDosen()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Dashboard Mahasiswa
+            </button>
         </div>
     </div>
 
@@ -37,6 +50,7 @@
 
 <script>
 const dosenList = document.getElementById("dosenList");
+
 async function loadData(){
     const res = await fetch("/nilai");
     const data = await res.json();
@@ -80,37 +94,34 @@ async function loadData(){
                         Tolak
                     </button>
                 </div>
-
             </div>
-
         `;
     });
 }
 
 async function updateStatus(id, status){
-
     const komentar = document.getElementById(`komentar-${id}`).value;
 
     await fetch(`/nilai/${id}`, {
-
-        method:"PUT",
-
-        headers:{
-            "Content-Type":"application/json"
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
         },
-
-        body:JSON.stringify({
+        body: JSON.stringify({
             status,
             komentar
         })
-
     });
 
     loadData();
 }
 
-loadData();
+function keluarDosen() {
+    sessionStorage.removeItem("isDosenLoggedIn");
+    window.location.href = "/";
+}
 
+loadData();
 </script>
 </body>
 </html>
